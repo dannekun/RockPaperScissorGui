@@ -35,7 +35,7 @@ public class Game extends JFrame implements ActionListener {
 
     Game(){
         knapper.setLayout(new GridLayout(1,4));
-        knapper.add(new JLabel("Ditt val "),JLabel.RIGHT);
+        knapper.add(new JLabel("Ditt val ", JLabel.RIGHT));
         knapper.add(sten);
         knapper.add(sax);
         knapper.add(påse);
@@ -46,7 +46,11 @@ public class Game extends JFrame implements ActionListener {
         knappar2.add(sax2);
         knappar2.add(påse2);
 
-        setLayout(new GridLayout(4,1,0,3));
+        statistik.setLayout(new GridLayout(1,2));
+        statistik.add(vinstL);
+        statistik.add(förlustL);
+
+       setLayout(new GridLayout(4,0));
         add(knapper);
         add(knappar2);
         add(meddelande);
@@ -72,33 +76,39 @@ public class Game extends JFrame implements ActionListener {
         if (e.getSource() == sten){
             val=STEN;
             sten.setBackground(Color.BLUE);
+            sten.setOpaque(true);
             sax.setBackground(Color.lightGray);
             påse.setBackground(Color.lightGray);
         } else if (e.getSource() == sax){
             val = SAX;
             sten.setBackground(Color.lightGray);
             sax.setBackground(Color.BLUE);
+            sax.setOpaque(true);
             påse.setBackground(Color.lightGray);
         } else {
             val = PÅSE;
             sten.setBackground(Color.lightGray);
             sax.setBackground(Color.lightGray);
             påse.setBackground(Color.BLUE);
+            påse.setOpaque(true);
         }
 
         int val2 = (int) (Math.random()*3);
         if (val2 == STEN){
             sten2.setBackground(Color.blue);
+            sten2.setOpaque(true);
             sax2.setBackground(Color.lightGray);
             påse2.setBackground(Color.lightGray);
         } else if (val2 == SAX){
             sten2.setBackground(Color.lightGray);
             sax2.setBackground(Color.BLUE);
+            sax2.setOpaque(true);
             påse2.setBackground(Color.lightGray);
         }else {
             sten2.setBackground(Color.lightGray);
             sax2.setBackground(Color.lightGray);
             påse2.setBackground(Color.BLUE);
+            påse2.setOpaque(true);
         }
 
         if (val == val2){
